@@ -254,7 +254,7 @@ def naive(text, skillfilter=None, jointfilter=True):
 
 def generate_ngrams(tokens, n):
     # generates ngrams
-    return [' '.join(tokens[index:index + n]) for index in range(len(tokens) - n)]
+    return [' '.join(tokens[index:index + n]) for index in range(len(tokens) - n + 1)]
 
 
 # Main loop
