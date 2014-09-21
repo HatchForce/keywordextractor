@@ -1,7 +1,7 @@
 import string
 
 def preprocess(text):
-    #text can be a big or small string
+    # Normalizes text before processing
     st = ''
     for letter in text:
         if letter in string.whitespace[:-1]:

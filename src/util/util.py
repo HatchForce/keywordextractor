@@ -1,4 +1,7 @@
+# Utiltiies
+
 def isnum (s):
+    # Test if token is a number
     try:
         if '.' in s:
             float(s)
@@ -10,6 +13,7 @@ def isnum (s):
     
     
 def loadWordList(stopWordFile):
+    # Word list loader 
     stopWords = []
     for line in open(stopWordFile):
         l = line.strip()

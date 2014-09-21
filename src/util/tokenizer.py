@@ -20,4 +20,3 @@ def splitSentences(text):
     sentenceDelimiters = re.compile(u'[.!?,;:\t\\-\\"\\(\\)\\\'\u2019\u2013]')
     sentenceList = sentenceDelimiters.split(text)
     return sentenceList
-
