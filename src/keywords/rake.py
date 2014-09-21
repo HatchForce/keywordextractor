@@ -10,6 +10,7 @@ test = True
 import operator
 
 def calculateWordScores(phrases):
+    # Calculates RAKE word scores
     wordfreq = {}
     worddegree = {}
     for phrase in phrases:
@@ -34,6 +35,7 @@ def calculateWordScores(phrases):
     return wordscore
     
 def generateCandidateKeywordScores(phraseList, wordscore):
+    # Aggregates word scores over phrases
     keywordcandidates = {}
     for phrase in phraseList:        
         candidatescore = 0

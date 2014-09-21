@@ -4,15 +4,16 @@ import filter
 import casing
 import operator
 
-stopwords.loadStopWords("../data/naive/stopwords.txt")
-filter.loadPositiveList("../data/naive/positives.txt")
-filter.loadNegativeList("../data/naive/negatives.txt")
-casing.loadCasings("../data/naive/casings.txt")
+stopwords.loadStopWords("../data/keywords/stopwords.txt")
+filter.loadPositiveList("../data/keywords/positives.txt")
+filter.loadNegativeList("../data/keywords/negatives.txt")
+casing.loadCasings("../data/keywords/casings.txt")
 
 from util.tokenizer import separatewords
 from rake import calculateWordScores, generateCandidateKeywordScores
 from stopwords import splitByStopWords
 def extract(text):
+    # Extracts keywords from text
     
     # preprocess, tokenize, group in n-grams
     text = util.textprocess.preprocess(text)     

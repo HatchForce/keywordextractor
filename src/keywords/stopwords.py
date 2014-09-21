@@ -1,10 +1,15 @@
+# Python module to handle stop words
+
+# List of stopwords
 stopwords = []
 
+# Loader for stopword list
 from util.util import loadWordList
 def loadStopWords(path):
     global stopwords
     stopwords = loadWordList(path)
 
+# Phrase breaker by stopwords
 def splitByStopWords(tokens):
     global stopwords
     phrases = []

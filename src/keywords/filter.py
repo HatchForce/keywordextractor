@@ -1,17 +1,22 @@
+# Python module with filter logic for keyword extraction
+
 positive_list = []
 negative_list = []
 
 from util.util import loadWordList
 
 def loadPositiveList(path):
+    # Loader for positives list
     global positive_list
     positive_list = loadWordList(path)
     
 def loadNegativeList(path):
+    # Loader for negatives list
     global negative_list
     negative_list = loadWordList(path)
 
 def filter(keywords):
+    # Apply filter on list of keyphrases
     
     global positive_list
     global negative_list
@@ -27,6 +32,7 @@ def filter(keywords):
     return filtered
 
 def isSublistOf(s, l):
+    # Test if s is a sublist of l
     if len(l) >= len(s):
         for start in range(len(l) - len(s) + 1):
             isSublist = True
@@ -39,6 +45,7 @@ def isSublistOf(s, l):
     return False
 
 def isSublistDuplicate(ngram, keywords):
+    # Test if ngram duplicates member of keywords
     for keyword in keywords:
         if ngram == keyword:
             continue

@@ -16,6 +16,7 @@ def titleCase(text):
     return text[0:1].upper() + text[1:len(text)].lower()
 
 def defaultCase(text):
+    # proxy for default casing
     return titleCase(text)
         
 def normalize(phrase):
