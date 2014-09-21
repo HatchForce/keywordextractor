@@ -1,11 +1,13 @@
 import re
 from util import isnum
 
+splitter = re.compile('[^a-zA-Z0-9_\\+\\-/]')
+sentenceDelimiters = re.compile(u'[.!?,;:\t\\-\\"\\(\\)\\\'\u2019\u2013]')
+
 # Utility function to return a list of all words that are have a length greater than a specified number of characters.
 # @param text The text that must be split in to words.
 # @param minWordReturnSize The minimum no of characters a word must have to be included.
-def separatewords(text, minWordReturnSize):
-    splitter = re.compile('[^a-zA-Z0-9_\\+\\-/]')
+def separatewords(text, minWordReturnSize):    
     words = []
     for singleWord in splitter.split(text):
         currWord = singleWord.strip().lower()
@@ -16,7 +18,5 @@ def separatewords(text, minWordReturnSize):
 
 # Utility function to return a list of sentences.
 # @param text The text that must be split in to sentences.
-def splitSentences(text):
-    sentenceDelimiters = re.compile(u'[.!?,;:\t\\-\\"\\(\\)\\\'\u2019\u2013]')
-    sentenceList = sentenceDelimiters.split(text)
-    return sentenceList
+def splitSentences(text):    
+    return sentenceDelimiters.split(text)
