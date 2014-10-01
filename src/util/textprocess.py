@@ -6,8 +6,8 @@ def preprocess(text):
     for letter in text:
         if letter in string.whitespace[:-1]:
             st += ' '
-        elif letter in '.,?!/\\()[]{}':
-            st += ' '+letter+' '
+        elif letter in '.,?!\\()[]{}':
+            st += ' ' + letter + ' '
         elif letter in '~`-*()[]{}<>)""\':; ':
             st += ' '
         else:

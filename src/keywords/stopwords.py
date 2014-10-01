@@ -24,3 +24,11 @@ def splitByStopWords(tokens):
     if len(phrase) > 0:
         phrases.append(phrase)
     return phrases
+
+# Tests if phrase contains stopword
+def containsStopword(phrase):
+    global stopwords
+    for token in phrase:
+        if token in stopwords:
+            return True
+    return False

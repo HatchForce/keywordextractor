@@ -3,7 +3,7 @@
 # Mapper script for CSV formatted LinkedIn job descriptions. Produces frequency 
 # histogram of word occurrences in the input corpus.
 # Run as 
-# cat information_technology_linkedin_jobs.csv | python stopwords/wordcount.py > wordcount-output
+# cat information_technology_linkedin_jobs.csv | python stopwords/wordcount_from_linkedin.py > wordcount-output
      
 import sys
 import csv
@@ -18,7 +18,7 @@ def main(argv):
         description = row[6]
         try:
             for word in separatewords(description, 0):
-                print "LongValueSum:" + word.lower() + "\t" + "1"
+                print "LongValueSum:" + word + "\t" + "1"
         except "end of file":
             return
         

@@ -1,10 +1,16 @@
+#!python
+
 # Script to generate the casing model from the cased word counts produced by 
 # casings/casingcount.py. Expects input of the format WORD\tCOUNT\n.
 # Run as
+# cat information_technology_linkedin_jobs.csv | python casings/casingcount_from_linkedin.py > casingcounts-output
 # python casings/generate_casings.py casingcounts-output > ../data/keywords/casings.txt
 
 import operator
 import sys
+
+# minimum threshold for the occurrence of a word to be added to the model
+threshold = 10
 
 casings = {}
 
@@ -32,7 +38,9 @@ def generate_casings():
         variants = sorted(casings[word].iteritems(), key=operator.itemgetter(1), reverse=True)
         if len(variants) == 0:
             continue
-        main, _ = variants[0]
+        main, count = variants[0]
+        if count < threshold:
+            continue
         if main != defaultCase(main) and main != main.lower():
             defaults += [main]
     return defaults

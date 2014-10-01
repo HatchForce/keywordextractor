@@ -3,7 +3,7 @@
 # Mapper script for CSV formatted LinkedIn job descriptions. Produces casings 
 # histogram
 # Run as 
-# cat information_technology_linkedin_jobs.csv | python casings/casingcount.py > casingcounts-output
+# cat information_technology_linkedin_jobs.csv | python casings/casingcount_from_linkedin.py > casingcounts-output
      
 import sys
 import csv

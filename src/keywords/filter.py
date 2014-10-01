@@ -14,22 +14,20 @@ def loadNegativeList(path):
     # Loader for negatives list
     global negative_list
     negative_list = loadWordList(path)
-
-def filter(keywords):
-    # Apply filter on list of keyphrases
+  
+from stopwords import containsStopword  
+def prefilter(keywords):
+    # Prefilter keywords
     
     global positive_list
     global negative_list
+    return [keyword for keyword in keywords if (not containsStopword(keyword) or ' '.join(keyword) in positive_list) and (' '.join(keyword) not in negative_list)]
+
+def postfilter(keywords):
+    # Apply filter on list of keyphrases
     
-    non_negatives = [keyword for keyword in keywords if ' '.join(keyword) not in negative_list]
-    positives = [keyword for keyword in non_negatives if ' '.join(keyword) in positive_list]
-    non_positives = [keyword for keyword in keywords if keyword not in positives]
-    uniques = [keyword for keyword in non_positives if not isSublistDuplicate(keyword, keywords)]
-    
-    filtered = []
-    filtered.extend(positives)
-    filtered.extend(uniques)
-    return filtered
+    global positive_list    
+    return [keyword for keyword in keywords if not isSublistDuplicate(keyword, keywords) or ' '.join(keyword) in positive_list]    
 
 def isSublistOf(s, l):
     # Test if s is a sublist of l
